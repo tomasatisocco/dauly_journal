@@ -1,6 +1,8 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:convert';
+import 'dart:async';
 
 class DatabaseFileRoutines {
   Future<String> get _localPath async{
@@ -42,7 +44,7 @@ class DatabaseFileRoutines {
 }
 
 // To read and parse from JSON data - databaseFronJson(jsonString);
-Database databaseFromSjon(String str){
+Database databaseFromJson(String str){
   final dataFromJson = json.decode(str);
   return Database.fromJson(dataFromJson);
 }
@@ -61,7 +63,7 @@ class Database{
   });
 
   factory Database.fromJson(Map<String, dynamic> json) => Database(
-    journal: List<Journal>.from(json["journals"].mal((x) => Journal.fromJson(x))),
+    journal: List<Journal>.from(json["journals"].map((x) => Journal.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {

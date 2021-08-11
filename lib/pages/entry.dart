@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:local_persistence/classes/database.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:intl/intl.dart';
 import 'dart:math'; //Random() numbers
+import 'dart:async';
 
 class EditEntry extends StatefulWidget {
 
@@ -71,9 +73,8 @@ class _EditEntryState extends State<EditEntry> {
         _initialDate.millisecond,
         _initialDate.microsecond
       );
-
-      return selectedDate;
     }
+    return selectedDate;
   }
 
   @override
@@ -88,6 +89,7 @@ class _EditEntryState extends State<EditEntry> {
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: <Widget> [
+                // ignore: deprecated_member_use
                 FlatButton(
                   padding: EdgeInsets.all(0.0), 
                   child: Row(
@@ -149,6 +151,7 @@ class _EditEntryState extends State<EditEntry> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
+                    // ignore: deprecated_member_use
                     FlatButton(
                       child: Text('Cancel'),
                       color: Colors.grey.shade100,
@@ -159,6 +162,7 @@ class _EditEntryState extends State<EditEntry> {
                     SizedBox(
                       width: 8.0,
                     ),
+                    // ignore: deprecated_member_use
                     FlatButton(
                       child: Text('Save'),
                       color: Colors.lightGreen.shade100,
